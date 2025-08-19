@@ -3,9 +3,67 @@
   width: 40px;
   height: 40px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
   z-index: 5;
   user-select: none;
+}
+
+.enemy-sprite {
+  font-size: 32px;
+  transition: transform 0.1s ease;
+}
+
+.enemy-damaged .enemy-sprite {
+  animation: damageFlash 0.2s ease;
+}
+
+.enemy-health-bar {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  background: rgba(255, 0, 0, 0.3);
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+.enemy-health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000 0%, #ffff00 50%, #00ff00 100%);
+  border-radius: 1px;
+  transition: width 0.2s ease;
+}
+
+/* Enemy tier styling */
+.enemy-tier-2 .enemy-sprite {
+  font-size: 36px;
+  filter: hue-rotate(60deg) brightness(1.2);
+}
+
+.enemy-tier-3 .enemy-sprite {
+  font-size: 40px;
+  filter: hue-rotate(120deg) brightness(1.4);
+}
+
+.enemy-tier-4 .enemy-sprite {
+  font-size: 44px;
+  filter: hue-rotate(180deg) brightness(1.6);
+}
+
+@keyframes damageFlash {
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(2) hue-rotate(0deg);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
 }

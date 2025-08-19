@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Player.css';
 
-const Player = ({ x, y, isMoving, direction }) => {
+const Player = ({ x, y, isMoving, direction, isFlashing = false }) => {
   const [animationFrame, setAnimationFrame] = useState(0);
 
   // Tileset configuration for 10 rows x 6 columns (using first 6 rows)
-  const FRAME_WIDTH = 42;  // Width of each frame in pixels
-  const FRAME_HEIGHT = 42; // Height of each frame in pixels
   const DISPLAY_SIZE = 96; // Display size (much larger for better visibility)
   const COLUMNS = 6;       // Number of columns in tileset
   const ANIMATION_SPEED = 200; // Milliseconds between frames
@@ -59,7 +57,7 @@ const Player = ({ x, y, isMoving, direction }) => {
 
   return (
     <div
-      className="player"
+      className={`player ${isFlashing ? 'player-flashing' : ''}`}
       style={{
         left: x - DISPLAY_SIZE / 2,
         top: y - DISPLAY_SIZE / 2,

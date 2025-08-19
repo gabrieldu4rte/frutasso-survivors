@@ -1,0 +1,139 @@
+/* Import pixel art font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.loading-content .loading-text {
+  order: 2; /* Put text after player */
+}
+
+.loading-content .loading-player {
+  order: 1; /* Put player first */
+}
+
+.loading-player {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-sprite {
+  background-image: url('../assets/player.png');
+  background-repeat: no-repeat;
+  background-size: 576px 960px;
+  /* Same as Player.css */
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  /* Add a subtle glow effect */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.loading-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.5rem;
+  font-weight: normal;
+  /* Pixel fonts don't need bold */
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #000000, 4px 4px 0px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.1em;
+  min-height: 2.5rem;
+  /* Prevent layout shift when dots change */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Pixel-perfect rendering */
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .loading-content {
+    gap: 1.5rem;
+  }
+
+  .loading-text {
+    font-size: 1.2rem;
+    min-height: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-content {
+    gap: 1rem;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+    min-height: 1.5rem;
+  }
+
+  .player-sprite {
+    transform: scale(0.8);
+  }
+}
+
+/* Landscape mobile optimization */
+@media (orientation: landscape) and (max-height: 500px) {
+  .loading-content {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+
+  .player-sprite {
+    transform: scale(0.7);
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .loading-text {
+    font-size: 0.8rem;
+    min-height: 1.2rem;
+  }
+
+  .player-sprite {
+    transform: scale(0.6);
+  }
+}

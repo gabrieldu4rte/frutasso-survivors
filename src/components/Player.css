@@ -5,4 +5,17 @@
   background-size: 576px 960px; /* Scaled up: 6 columns × 96px = 576px, 10 rows × 96px = 960px */
   z-index: 10;
   image-rendering: pixelated;
+  transition: filter 0.1s ease;
+}
+
+.player-flashing {
+  animation: playerDamageFlash 0.5s ease-in-out;
+}
+
+@keyframes playerDamageFlash {
+  0% { filter: brightness(1) hue-rotate(0deg); }
+  25% { filter: brightness(2) hue-rotate(0deg) drop-shadow(0 0 10px #ff0000); }
+  50% { filter: brightness(1) hue-rotate(0deg); }
+  75% { filter: brightness(2) hue-rotate(0deg) drop-shadow(0 0 10px #ff0000); }
+  100% { filter: brightness(1) hue-rotate(0deg); }
 }

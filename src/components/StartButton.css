@@ -1,0 +1,141 @@
+.start-button {
+  /* Remove default button styling */
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  /* Image positioning and rendering */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  
+  /* Enhanced pixel art rendering */
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+
+  /* Ensure proper scaling and performance */
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  /* Smooth hover effects */
+  transition: transform 0.1s ease-out;
+  
+  /* Default size - will be overridden by responsive rules */
+  width: 200px;
+  height: 200px;
+  
+  /* Maintain aspect ratio */
+  aspect-ratio: 1;
+}
+
+.start-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.start-button:focus {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+.start-button:disabled {
+  cursor: not-allowed;
+}
+
+/* Responsive scaling for different screen sizes */
+
+/* Large screens - default size */
+@media (min-width: 1025px) {
+  .start-button {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  .start-button {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .start-button {
+    width: 150px;
+    height: 150px;
+  }
+
+  .start-button:hover:not(:disabled) {
+    transform: scale(1.08);
+  }
+}
+
+/* Large phones */
+@media (max-width: 480px) {
+  .start-button {
+    width: 120px;
+    height: 120px;
+  }
+
+  .start-button:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+}
+
+/* Small phones */
+@media (max-width: 320px) {
+  .start-button {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .start-button:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+  .start-button {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 400px) {
+  .start-button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .start-button {
+    /* Larger touch targets on touch devices */
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .start-button:hover:not(:disabled) {
+    /* Reduce hover effects on touch devices */
+    transform: scale(1.02);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .start-button {
+    /* Ensure crisp rendering on high DPI displays */
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+}

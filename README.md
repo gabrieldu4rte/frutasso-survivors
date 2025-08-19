@@ -30,7 +30,7 @@ A simple browser-based game inspired by Vampire Survivors, built with React.
 
 ## Future Improvements
 
-- Weapons and combat system
+- Weapons and combat system (✅)
 - Experience points and leveling
 - Power-ups and upgrades
 - Better graphics and sound effects
