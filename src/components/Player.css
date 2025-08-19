@@ -1,0 +1,8 @@
+.player {
+  position: absolute;
+  background-image: url('../assets/player.png');
+  background-repeat: no-repeat;
+  background-size: 576px 960px; /* Scaled up: 6 columns × 96px = 576px, 10 rows × 96px = 960px */
+  z-index: 10;
+  image-rendering: pixelated;
+}

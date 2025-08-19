@@ -1,0 +1,27 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #1a1a1a;
+}
+
+.viewport {
+  position: relative;
+  border: 2px solid #444;
+  overflow: hidden;
+}
+
+.world {
+  image-rendering: pixelated;
+}
+
+.ui {
+  margin-top: 10px;
+  color: white;
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
